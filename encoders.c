@@ -1,7 +1,7 @@
 /*
  * encoders.c
  *
- *  Created on: Sep 27, 2020
+ *  Template created on: Sep 27, 2020
  *      Author: Tyler Price
  */
 
@@ -9,7 +9,7 @@
 #include "encoders.h"
 
 /*
- * Implement this function so it returns the right encoder value
+ * returns the right encoder value
  */
 int16_t getRightEncoderCounts()
 {
@@ -17,16 +17,13 @@ int16_t getRightEncoderCounts()
 }
 
 /*
- * Implement this function so it returns the left encoder value
+ * returns the left encoder value
  */
 int16_t getLeftEncoderCounts()
 {
 	return (int16_t) TIM2->CNT;
 }
 
-/*
- * This function has already been implemented for you. Enjoy! :)
- */
 void resetEncoders()
 {
 	TIM8->CNT = (int16_t) 0;
