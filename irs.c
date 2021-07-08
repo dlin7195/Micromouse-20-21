@@ -1,7 +1,7 @@
 /*
  * irs.c
  *
- *  Created on: Sep 29, 2020
+ *  Template created on: Sep 29, 2020
  *      Author: Bradley Schulz
  */
 
@@ -9,18 +9,18 @@
 #include "irs.h"
 #include "delay.h"
 
-// This is the buffer that will get filled up with all the measurements
+// buffer that will get filled up with all the measurements
 uint16_t adc_buf[NUM_SAMPLES];
 // "boolean" variable to keep say when the ADC has finished filling up the buffer
 uint8_t complete = 0;
 
 
 /*
- This function should handle everything for reading a specific IR
- First turn on the correct IR emitter
- Wait for a small amount of time (at least 20 us) so the photodiode can react
- Then read the correct receiver
- Lastly turn off the emitter
+ function for handling everything for reading a specific IR
+ 1. turn on the correct IR emitter
+ 2. Wait for a small amount of time (at least 20 us) so the photodiode can react
+ 3. Then read the correct receiver
+ 4. Lastly turn off the emitter
  */
 uint16_t readIR(IR ir)
 {
@@ -48,10 +48,6 @@ uint16_t readIR(IR ir)
 	return ir_read;
 }
 
-/*
- Implement the following 3 functions to read each IR
- Hint: Each function may just be one line
- */
 uint16_t readLeftIR(void)
 {
 	return readIR(IR_LEFT);
@@ -62,7 +58,6 @@ uint16_t readFrontIR(void)
 	return readIR(IR_FRONT);
 }
 
-
 uint16_t readRightIR(void)
 {
 	return readIR(IR_RIGHT);
@@ -70,15 +65,14 @@ uint16_t readRightIR(void)
 
 /*
  This function reads the specific channel of the ADC corresponding to the correct IR
- You should not have to edit this function
- */
+*/
 uint16_t analogRead(IR ir)
 {
-    ADC_ChannelConfTypeDef sConfig = {0}; //this initializes the IR ADC [Analog to Digital Converter]
-    ADC_HandleTypeDef *hadc1_ptr = Get_HADC1_Ptr(); //this is a pointer to your hal_adc
+    ADC_ChannelConfTypeDef sConfig = {0}; // initializes the IR ADC [Analog to Digital Converter]
+    ADC_HandleTypeDef *hadc1_ptr = Get_HADC1_Ptr(); // pointer to your hal_adc
     //this pointer will also be used to read the analog value, val = HAL_ADC_GetValue(hadc1_ptr);
 
-    //this picks the IR direction to choose the right ADC.
+    // picks the IR direction to choose the right ADC.
     switch(ir)
     {
         case IR_LEFT:
