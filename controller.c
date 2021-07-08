@@ -1,7 +1,6 @@
 /*
  * controller.c
- *  Template
- *  Created on: Sep 27, 2020
+ *  Template created on: Sep 27, 2020
  *      Author: Tyler Price
  */
 
